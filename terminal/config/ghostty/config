@@ -38,7 +38,8 @@ cursor-style = block
 cursor-style-blink = false
 confirm-close-surface = false
 unfocused-split-opacity = 0.9
-scrollback-limit = 10000000        # bytes (10 MB)
+# bytes (10 MB)
+scrollback-limit = 10000000
 
 shell-integration = zsh
 shell-integration-features = cursor,sudo,title
