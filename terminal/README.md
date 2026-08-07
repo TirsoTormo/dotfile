@@ -1,5 +1,5 @@
 # terminal
-![Preview](preview.png)
+![Preview](preview.png.jpg)
 My terminal setup for Debian / Ubuntu. One script, one command, and a fresh
 machine ends up with the exact same shell I use every day.
 
