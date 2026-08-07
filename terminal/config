@@ -1,0 +1,49 @@
+# ~/.config/ghostty/config  (symlinked from this repo)
+# Full option list: ghostty +show-config --default --docs
+
+# --- Typography --------------------------------------------------------------
+# DepartureMono is a pixel font: it looks sharpest at multiples of 11px.
+# If it looks blurry, try font-size = 11 or 22.
+font-family = DepartureMono Nerd Font Mono
+font-size = 12
+
+# --- Colors ------------------------------------------------------------------
+theme = Apple System Colors
+# To follow the system light/dark mode, replace the line above with:
+# theme = light:Apple System Colors Light,dark:Apple System Colors
+
+# --- Window ------------------------------------------------------------------
+# Measured in cells, not pixels: 112 columns x 26 rows.
+window-width = 112
+window-height = 26
+window-padding-x = 12
+window-padding-y = 10
+window-padding-balance = true
+
+# --- Transparency ------------------------------------------------------------
+background-opacity = 0.8
+# NOTE: the current option name is "background-blur" (it used to be
+# "background-blur-radius"). On Linux it only works on KDE Plasma; on GNOME you
+# need the Blur My Shell extension. On KDE the intensity value is ignored --
+# any positive number applies the compositor's global blur.
+background-blur = 20
+
+# --- Mouse -------------------------------------------------------------------
+mouse-hide-while-typing = true
+mouse-scroll-multiplier = 2
+copy-on-select = clipboard
+
+# --- Extras (delete this block if you don't want them) -----------------------
+cursor-style = block
+cursor-style-blink = false
+confirm-close-surface = false
+unfocused-split-opacity = 0.9
+scrollback-limit = 10000000        # bytes (10 MB)
+
+shell-integration = zsh
+shell-integration-features = cursor,sudo,title
+
+keybind = ctrl+shift+enter=new_split:right
+keybind = ctrl+shift+d=new_split:down
+keybind = ctrl+shift+w=close_surface
+keybind = ctrl+shift+t=new_tab
