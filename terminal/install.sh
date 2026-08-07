@@ -122,10 +122,13 @@ apt_install() {
 }
 
 # Does apt have an installable candidate for this package?
+# LC_ALL=C keeps apt-cache's output in English regardless of the user's
+# locale -- otherwise the grep below never matches on e.g. a Spanish system,
+# where "Candidate:" is printed as "Candidato:".
 apt_has_candidate() {
   apt_update_once
   local policy
-  policy="$(apt-cache policy "$1" 2>/dev/null)" || return 1
+  policy="$(LC_ALL=C apt-cache policy "$1" 2>/dev/null)" || return 1
   [[ -n "$policy" ]] || return 1
   grep -q 'Candidate:' <<<"$policy" && ! grep -q 'Candidate: (none)' <<<"$policy"
 }

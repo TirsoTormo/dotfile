@@ -3,6 +3,8 @@
 My terminal setup for Debian / Ubuntu. One script, one command, and a fresh
 machine ends up with the exact same shell I use every day.
 
+![Preview](preview.png)
+
 | Tool | What it is |
 | --- | --- |
 | [Ghostty](https://ghostty.org) | GPU-accelerated terminal emulator |
