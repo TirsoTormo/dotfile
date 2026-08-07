@@ -434,11 +434,14 @@ step_fastfetch() {
   header "4/4  fastfetch"
   install_fastfetch
   link_config "$CONFIG_DIR/fastfetch" "$HOME/.config/fastfetch"
+  chmod +x "$CONFIG_DIR/fastfetch/ff-random.sh"
 
-  if [[ -f "$CONFIG_DIR/fastfetch/logos/current.png" ]]; then
-    ok "Logo found"
+  local logo_count
+  logo_count=$(find "$CONFIG_DIR/fastfetch/logos" -maxdepth 1 -name '[0-9]*.png' | wc -l)
+  if [[ "$logo_count" -gt 0 ]]; then
+    ok "$logo_count carousel logo(s) found"
   else
-    warn "No logo yet. Drop a PNG at terminal/config/fastfetch/logos/current.png"
+    warn "No logos yet. Drop numbered PNGs at terminal/config/fastfetch/logos/"
     warn "or run: ff-logo ~/Pictures/whatever.png"
   fi
 }

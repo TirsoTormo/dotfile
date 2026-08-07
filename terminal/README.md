@@ -54,24 +54,34 @@ terminal/
     ├── zsh/.zshrc           -> ~/.zshrc
     └── fastfetch/           -> ~/.config/fastfetch
         ├── config.jsonc
-        └── logos/current.png   (your image goes here)
+        ├── ff-random.sh
+        └── logos/
+            ├── 1.png ... 18.png
+            └── current.png      (generated symlink, not tracked)
 ```
 
 Configs are **symlinked**, not copied. Edit a file in this repo and the change
 applies immediately; `git push` carries it to every other machine.
 
-## The fastfetch logo
+## The fastfetch logo carousel
 
 The config draws a real PNG using the Kitty graphics protocol, which Ghostty
-supports. Put your image at `config/fastfetch/logos/current.png`, or from the
-shell:
+supports. `.zshrc` runs `ff-random.sh` on every new shell, which cycles
+through the numbered PNGs in `config/fastfetch/logos/` and symlinks the next
+one to `logos/current.png`. The logo set and rotation script are adapted from
+[fastfetch-carousel](https://github.com/zakf4-blip/fastfetch-carousel); only
+the logo rotation is used here, since this config's `keyColor`s are fixed
+instead of templated per logo like upstream's.
+
+To pin a single custom logo instead of rotating, run:
 
 ```bash
 ff-logo ~/Pictures/whatever.png
 ```
 
-Without an image fastfetch still prints all the system info, it just complains
-about the missing logo.
+It stays until the next new shell rotates the carousel again. Without any
+logos fastfetch still prints all the system info, it just complains about the
+missing image.
 
 ## Safety
 
